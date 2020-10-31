@@ -1,4 +1,6 @@
 testes = int(input())
+casos = testes
+resultadosFinais = []
 
 while(testes != 0):
   comando = input()
@@ -6,17 +8,34 @@ while(testes != 0):
 
   lista = rgb.split()
 
-  red = lista[0] # 20
-  green = lista[1] # 70
-  blue = lista[2] # 50
+  red = int(lista[0])
+  green = int(lista[1])
+  blue = int(lista[2])
 
   if (comando == "mean"):
-    media = (int(red) + int(green) + int(blue)) / 3
-    print(int(media))
+    media = (red + green + blue) / 3
+    resultadosFinais.append(int(media))
+    
   elif (comando == "eye"):
-    resultado = (int(red) * 0.3) + (int(green) * 0.59) + (int(blue) * 0.11)
-    print(int(resultado))
+    resultado = (red * 0.3) + (green * 0.59) + (blue * 0.11)
+    resultadosFinais.append(int(resultado))
+
+  elif (comando == "min"):
+    minimo = int(min(lista))
+    resultadosFinais.append(minimo)
+
+  elif(comando == "max"):
+    maximo = int(max(lista))
+    resultadosFinais.append(maximo)
+
   else:
     print("Comando Inválido")
     
   testes -= 1
+
+i = 1
+for x in resultadosFinais:
+  print("Caso #" + str(i) + ": " + str(resultadosFinais[i-1]))
+  i += 1
+
+  
